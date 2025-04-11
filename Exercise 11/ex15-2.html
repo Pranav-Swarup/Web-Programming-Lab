@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stopwatch and Age Calc</title>
+   
+    <style>
+        div.mainstuff {
+            margin-left: 220px;
+            margin-right: 220px;
+            margin-top: 150px;
+        }
+
+
+        #div1 {
+            position: static;
+            padding: 20px;
+            background-color: aquamarine;
+        }
+
+
+        header {
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            color: wheat;
+            font-size: large;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .stopwatch, .age-calculator, .textarea-counter {
+            margin-bottom: 30px;
+        }
+        .stopwatch-display {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        input[type="text"], textarea {
+            padding: 10px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+        .counter {
+            font-size: 14px;
+            color: gray;
+        }
+
+
+        aside.left {
+            z-index: -1;
+            background-color: grey;
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            color: white;
+        }
+
+
+        aside.right {
+            z-index: -1;
+            background-color: grey;
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            color: white;
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+    <header>
+        Question 2 Exercise 11 23BCE5121
+    </header>
+    <aside class="left">
+    </aside>
+    <aside class="right">
+    </aside>
+    <div class="mainstuff">
+
+
+        <div class="stopwatch">
+            <h2>Stopwatch</h2>
+            <div class="stopwatch-display">00:00:00</div>
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+            <button id="reset">Reset</button>
+        </div>
+   
+        <div class="age-calculator">
+            <h2>Age Calculator</h2>
+            <input type="text" id="dob" placeholder="Enter Date of Birth (YYYY-MM-DD)">
+            <p id="age-result">Hover here to see your age.</p>
+        </div>
+
+
+        <div class="textarea-counter">
+            <h2>Textarea with Character Counter</h2>
+            <textarea id="textarea" placeholder="Type something..."></textarea>
+            <div class="counter">Characters: <span id="char-count">0</span></div>
+        </div>
+
+
+    </div>
+
+
+    <script>
+       
+        const stopwatchDisplay = document.querySelector(".stopwatch-display");
+        const startButton = document.getElementById("start");
+        const stopButton = document.getElementById("stop");
+        const resetButton = document.getElementById("reset");
+
+
+        let startTime = 0;
+        let elapsedTime = 0;
+        let timerInterval;
+
+
+        function formatTime(milliseconds) {
+            const hours = Math.floor(milliseconds / 3600000);
+            const minutes = Math.floor((milliseconds % 3600000) / 60000);
+            const seconds = Math.floor((milliseconds % 60000) / 1000);
+            return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+        }
+
+
+        function startTimer() {
+            startTime = Date.now() - elapsedTime;
+            timerInterval = setInterval(() => {
+                elapsedTime = Date.now() - startTime;
+                stopwatchDisplay.textContent = formatTime(elapsedTime);
+            }, 10);
+            startButton.disabled = true;
+            stopButton.disabled = false;
+        }
+
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+            startButton.disabled = false;
+            stopButton.disabled = true;
+        }
+
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            elapsedTime = 0;
+            stopwatchDisplay.textContent = "00:00:00";
+            startButton.disabled = false;
+            stopButton.disabled = true;
+        }
+
+
+        startButton.addEventListener("click", startTimer);
+        stopButton.addEventListener("click", stopTimer);
+        resetButton.addEventListener("click", resetTimer);
+
+
+        const dobInput = document.getElementById("dob");
+        const ageResult = document.getElementById("age-result");
+
+
+        dobInput.addEventListener("mouseover", () => {
+            const dob = new Date(dobInput.value);
+            if (isNaN(dob.getTime())) {
+                ageResult.textContent = "Invalid date. Please enter a valid date (YYYY-MM-DD).";
+                return;
+            }
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            const monthDiff = today.getMonth() - dob.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+            ageResult.textContent = `Your age is ${age} years.`;
+        });
+
+
+        const textarea = document.getElementById("textarea");
+        const charCount = document.getElementById("char-count");
+
+
+        textarea.addEventListener("input", () => {
+            const text = textarea.value;
+            charCount.textContent = text.length;
+        });
+    </script>
+
+
+</body>
+</html>

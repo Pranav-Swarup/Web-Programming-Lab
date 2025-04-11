@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Professional Resume</title>
+</head>
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        background-color: #f9f9f9;
+    }
+
+
+    h1, h2, h3 {
+        margin: 0;
+    }
+
+
+    .container {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 200px 1fr 300px;
+        height: 100vh;
+        gap: 10px;
+    }
+
+
+    header {
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        grid-column: 1 / 4;
+        background-color: #296d2c;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+
+    .sidebar {
+      background-color: #303030;
+      color: white;
+      padding: 25px;
+    }
+
+
+    .sidebar ul {
+      list-style: inside;
+      padding: 0;
+    }
+
+
+    .sidebar ul li {
+      margin: 10px 0;
+    }
+
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+
+    .sidebar ul li a:hover {
+      text-decoration: underline;
+    }
+
+
+    main {
+      background-color: white;
+      overflow-y: auto;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+    main .profile {
+      text-align: center;
+    }
+
+
+    main .about-me img {
+      display: block;
+      margin: 20px auto;
+      width: 150px;
+      border-radius: 50%;
+    }
+
+
+    main .about-me .caption {
+      text-align: center;
+      font-size: 0.9em;
+      color: gray;
+    }
+
+
+    .quick-facts {
+        color: rgb(30, 30, 30);
+      background-color: #f3f3f3;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .quick-facts h3 {
+      margin-top: 0;
+    }
+
+
+    .quick-facts ul {
+      list-style: circle;
+      padding: 0 0 0 1;
+    }
+
+
+    .quick-facts ul li {
+
+
+      margin-top: 10px ;
+    }
+    .quick-facts{
+        font-size: smaller;
+    }
+    footer {
+      grid-column: 1 / 4;
+      background-color: #303030;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9em;
+    }
+    footer a{
+        color:aquamarine;
+    }
+    footer a:hover{
+        color:aqua;
+    }
+    footer a:visited{
+        color: blueviolet
+    }
+    #education li, #experience li{
+      margin-bottom: 10px;
+    }
+    progress{
+      margin-bottom: 10px;
+    }
+  </style>
+
+
+<body>
+<div class="container">
+  <header>
+    <h1>Pranav's Professional Resume</h1>
+  </header>
+
+
+  <aside class="sidebar">
+    <nav>
+      <ul>
+        <li><a href="aboutme.html">About Me</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="xp.html">Experience</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="media.html">Media</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+
+  <main>
+    <div class="profile">
+      <h2>Pranav Swarup Kumar</h2>
+      <p>Software Engineer | Problem Solver | Writer | Artist</p>
+      <hr>
+    </div>
+    <div class="about-me">
+      <section id="about">
+        <h2>About Me</h2>
+          <p>
+          I am currently pursuing a degree in Computer Science at VIT Chennai,
+          with a strong interest in web programming and software development.
+          Beyond academics, I am passionate about exploring the intersection of
+          creativity and logic through my love for art, mathematics, and science.
+            <br><br>
+          In my free time, I enjoy singing, crafting, and engaging in activities
+          that challenge my problem-solving skills. My diverse interests drive me
+          to approach both technical and creative tasks with curiosity and
+          determination, fostering continuous learning and personal growth.
+          </p>
+        </section>
+        <figure>
+          <img src="myself.jpg" alt="Myself">
+          <figcaption class="caption">Pranav Swarup</p>
+        </figure>
+     
+    </div>
+   
+    <section id="education">
+      <hr><br>
+      <h2>Education</h2>
+      <article>
+          <h4>Bachelor of Technology in Computer Science</li></h4>
+          <p><ul><li>VIT Chennai 2027</li></ul></p>
+          <h4>CBSE</h4>
+          <p><ul><li>Whitefield Global 2023</li><li>Vydehi School of Excellence 2021</li><li>B.V.B.P.S Hyd 2018</li></ul></p>
+          <hr><br>
+      </article>
+    </section>
+
+
+    <section id="experience">
+      <h2>Work Experience</h2>
+      <article>
+        <br>
+          <h3>Content Lead and Tech member</h3>
+          <p>The Socrates Club VITC | December 2023 - Present</p>
+          <ul>
+              <li>Developed scalable web applications for recruitments.</li>
+              <li>Deployed the blogpage for the club.</li>
+          </ul>
+          <hr><br>
+      </article>
+    </section>
+
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <article>
+        <br>
+          <h3>Programming Languages</h3>
+          <br>
+          <progress value="90" max="100"></progress> Java<br>
+          <progress value="85" max="100"></progress> Python<br>
+          <progress value="60" max="100"></progress> HTML/CSS<br>
+          <progress value="70" max="100"></progress> C<br>
+          <progress value="80" max="100"></progress> C++<br><br>
+          <hr><br>
+      </article>
+  </section>
+
+
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <br>
+    <article>
+        <h3>Certifications Completed</h3>
+        <p>Pursuing certifications in Machine Learning. <meter value="2" min="0" max="10">2/10</meter></p>
+        <p>Completed certifications in Scientific Computing with Python. <meter value="10" min="0" max="10">10/10</meter></p>
+    </article>
+    <br><hr>
+  </section>
+
+
+  <section id="achievements">
+    <details>
+      <br>
+      <summary>Additional Information</summary>
+      <p><b>Hobbies:</b> Singing, Writing and papercrafts.</p>
+      <p><b>Future Goals:</b> Contribute to open-source projects and diversifying my knowledge.</p>
+      <br><hr>
+      <br>
+    </details>
+  </section>
+
+
+  </main>
+
+
+  <aside class="quick-facts">
+    <h4>Quick Facts</h4>
+    <ul>
+      <li>Proficient in
+          <ul>
+              <li>HTML-CSS</li>
+              <li>Python</li>
+              <li>C</li>
+              <li>C++</li>
+              <li>Java</li>
+          </ul>
+      </li>
+      <li>9.65 - CGPA</li>
+      <li>Published 2 Research Papers in IEEE and IGI Global.</li>
+      <li>Certified in Scientific Computing with Python.</li>
+    </ul>
+  </aside>
+
+  <footer>
+    <p>&copy; 23BCE5121 Pranav Swarup Kumar. All rights reserved.</p>
+    <p>Contact: <a href="mailto:pranavswarup.kumar2023@vitstudent.ac.in">pranavswarup.kumar2023@vitstudent.ac.in</a></p>
+  </footer>
+  </div>
+</body>
+</html>

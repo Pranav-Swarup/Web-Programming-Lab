@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nested Tables</title>
+    <style>
+        table {
+            width: 140px;
+            height: 80px;
+            border-collapse: collapse;
+            margin: auto;
+        }
+        td {
+            padding: 15px;
+        }
+        .blue { background-color: #3e40ae;
+        margin: 20px;}
+        .yellow { background-color: yellow; }
+        .red { background-color: rgb(195, 36, 36); }
+        .white { background-color: white; }
+        .green { background-color: green; }
+        .button {
+            text-align: center;
+            vertical-align: middle;
+            color: white;
+            font-size: 20px;
+        }
+        .btn {
+            background-color: green;
+            color: white;
+            padding: 8px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size:20px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <table class="blue">
+        <tr>
+            <td>
+                <table class="yellow">
+                    <tr>
+                        <td>
+                            <table class="red">
+                                <tr>
+                                    <td>
+                                        <table class="white">
+                                            <tr>
+                                                <td>
+                                                    <table class="green">
+                                                        <tr>
+                                                         <td class="button">
+<a href="nexttable.html">
+                                                     <button class="btn">
+Click Me
+</button></a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

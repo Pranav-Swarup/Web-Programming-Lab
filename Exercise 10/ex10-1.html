@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Records</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <div class="container">
+        <h2>Patient Records</h2>
+       
+        <button onclick="sortByAgeDesc()">Sort by Age (Descending)</button>
+       
+        <div>
+            <input type="number" id="checkId" placeholder="Enter P-Id">
+            <button onclick="checkPatientId()">Check P-Id</button>
+        </div>
+
+
+        <div>
+            <input type="number" id="minAge" placeholder="Min Age">
+            <input type="number" id="maxAge" placeholder="Max Age">
+            <button onclick="filterByAge()">Filter by Age</button>
+        </div>
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>P-Id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody id="patientTable">
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>

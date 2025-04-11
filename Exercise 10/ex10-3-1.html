@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grocery Order Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Grocery Order Form</h2>
+        <form id="orderForm">
+            <label>Customer Name:</label>
+            <input type="text" id="name" required>
+
+
+            <label>Phone Number:</label>
+            <input type="tel" id="phone" required>
+
+
+            <label>Email:</label>
+            <input type="email" id="email" required>
+
+
+            <h3>Products</h3>
+            <div class="product">
+                <img src="apple.png" alt="Apple">
+                <label>Apple ($10/kg)</label>
+                <input type="number" id="apple" min="0">
+            </div>
+
+
+            <div class="product">
+                <img src="banana.png" alt="Banana">
+                <label>Banana ($5/kg)</label>
+                <input type="number" id="banana" min="0">
+            </div>
+
+
+            <div class="product">
+                <img src="avocado.png" alt="Avocado">
+                <label>Avocado ($7/kg)</label>
+                <input type="number" id="avocado" min="0">
+            </div>
+
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+

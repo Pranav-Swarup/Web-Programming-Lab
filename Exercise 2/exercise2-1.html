@@ -1,0 +1,101 @@
+<DOCTYPE! html>
+<html lang="en">
+<header>
+    <meta charset="UTF-8">
+    <title>Timetable</title>
+</header>
+<style>
+    .table1 {
+        border-collapse: collapse;
+        width: 100%;
+        border: 2px solid black;
+        table-layout: fixed;
+    }
+    th, td {
+        border: 2px solid black;
+        padding: 10px;
+        text-align: center;
+    }
+    .header {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+    .event {
+        background-color: #dcdcdc;
+    }
+    .lunch {
+        background-color: #fff06a;
+        font-weight: bold;
+        color: white;
+        background-image: url('https://www.cnet.com/a/img/resize/69256d2623afcbaa911f08edc45fb2d3f6a8e172/hub/2023/02/03/afedd3ee-671d-4189-bf39-4f312248fb27/gettyimages-1042132904.jpg?auto=webp&fit=crop&height=675&width=1200');
+    }
+    .hours {
+        font-weight: bold;
+        background-color: #f9f9f9;
+    }
+    .tt{
+        background-color: #7758ff;
+        font-weight: bold;
+    }
+</style>
+
+
+<h2>Weekly Timetable</h2>
+
+
+<table class="table1">
+    <thead><tr><th class = "tt" colspan="6">Timetable</th></tr></thead>
+    <thead>
+        <tr>
+            <th class="header">Hours</th>
+            <th class="header">Monday</th>
+            <th class="header">Tuesday</th>
+            <th class="header">Wednesday</th>
+            <th class="header">Thursday</th>
+            <th class="header">Friday</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- hour 1 class -->
+        <tr>
+            <td class="hours">8:00 - 9:00</td>
+            <td class="event">Math</td>
+            <td class="event">Science</td>
+            <td class="event">English</td>
+            <td class="event">Art</td>
+            <td class="event">History</td>
+        </tr>
+        <!-- Hour 2 (Class) -->
+        <tr>
+            <td class="hours">9:00 - 10:00</td>
+            <td class="event">Science</td>
+            <td class="event">Math</td>
+            <td class="event">History</td>
+            <td class="event">Geography</td>
+            <td class="event">Math</td>
+        </tr>
+        
+        <tr>
+            <td class="hours">10:00 - 11:00</td>
+            <td class="lunch" colspan="5">Lunch</td>
+        </tr>
+        
+        <tr>
+            <td class="hours">11:00 - 12:00</td>
+            <td class="event">Literature</td>
+            <td class="event">PE</td>
+            <td class="event">Music</td>
+            <td class="event">Math</td>
+            <td class="event">Biology</td>
+        </tr>
+        <tr>
+            <td class="hours">12:00 - 1:00</td>
+            <td class="event">Art</td>
+            <td class="event">History</td>
+            <td class="event">Geography</td>
+            <td class="event">PE</td>
+            <td class="event">Literature</td>
+        </tr>
+    </tbody>
+</table>
+</html>

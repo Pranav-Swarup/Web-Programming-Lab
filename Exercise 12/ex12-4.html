@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Z-Index Example</title>
+    <style>
+        #mainstuff {
+            margin-left: 220px;
+            margin-right: 220px;
+            margin-top: 150px;
+        }
+
+
+        #div1 {
+            position: static;
+            padding: 20px;
+            background-color: aquamarine;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+            height: 100vh;
+        }
+        header {
+            z-index: 10;
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            color: wheat;
+            font-size: large;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        aside.left {
+            z-index: -1;
+            background-color: grey;
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            color: white;
+        }
+
+
+        aside.right {
+            z-index: -1;
+            background-color: grey;
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            color: white;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+        }
+        .box {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            opacity: 0.8;
+        }
+        .red {
+            background-color: red;
+            z-index: 1;
+            top: 20px;
+            left: 20px;
+        }
+        .blue {
+            background-color: blue;
+            z-index: 2;
+            top: 40px;
+            left: 40px;
+        }
+        .green {
+            background-color: green;
+            z-index: 3;
+            top: 60px;
+            left: 60px;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        .controls label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .controls input {
+            width: 50px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <header>
+        Question 3 Exercise 12 23BCE5121
+    </header>
+    <aside class="left">
+    </aside>
+    <aside class="right">
+    </aside>
+
+
+    <div id="mainstuff">  
+        <div class="container">
+            <div class="box red"></div>
+            <div class="box blue"></div>
+            <div class="box green"></div>
+        </div>
+
+
+        <div class="controls">
+            <label>
+                Red Box z-index:
+                <input type="number" id="redZIndex" value="1" min="1" max="10">
+            </label>
+            <label>
+                Blue Box z-index:
+                <input type="number" id="blueZIndex" value="2" min="1" max="10">
+            </label>
+            <label>
+                Green Box z-index:
+                <input type="number" id="greenZIndex" value="3" min="1" max="10">
+            </label>
+        </div>
+    </div>
+
+
+    <script>
+        function updateZIndex() {
+            const redBox = document.querySelector(".red");
+            const blueBox = document.querySelector(".blue");
+            const greenBox = document.querySelector(".green");
+
+
+            const redZIndex = document.getElementById("redZIndex").value;
+            const blueZIndex = document.getElementById("blueZIndex").value;
+            const greenZIndex = document.getElementById("greenZIndex").value;
+
+
+            redBox.style.zIndex = redZIndex;
+            blueBox.style.zIndex = blueZIndex;
+            greenBox.style.zIndex = greenZIndex;
+        }
+
+
+        document.getElementById("redZIndex").addEventListener("input", updateZIndex);
+        document.getElementById("blueZIndex").addEventListener("input", updateZIndex);
+        document.getElementById("greenZIndex").addEventListener("input", updateZIndex);
+
+
+        document.querySelectorAll(".box").forEach(box => {
+            box.addEventListener("mouseover", function() {
+                this.style.zIndex = "10";
+            });
+
+
+            box.addEventListener("mouseout", function() {
+                updateZIndex();
+            });
+        });
+    </script>
+
+
+</body>
+</html>

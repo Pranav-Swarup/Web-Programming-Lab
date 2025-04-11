@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Favorite Singer</title>
+    <style>
+        .myphoto {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid #000000;
+        }
+
+
+        .myphoto::after {
+            content: attr(title);
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            animation: titleAnimation 3s infinite;
+        }
+
+
+        @keyframes titleAnimation {
+            0% {
+                font-size: 14px;
+                color: #000000;
+            }
+            50% {
+                font-size: 16px;
+                color: #00ff00;
+            }
+            100% {
+                font-size: 14px;
+                color: #0000ff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <figure>
+        <img src="singer.jpg" alt="Your Favorite Singer" class="myphoto" title="The Marias">
+        <figcaption>&emsp;&emsp;&emsp;<b>The Marías</figcaption>
+    </figure>
+</body>
+</html>

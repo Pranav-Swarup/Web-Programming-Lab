@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Labour Cost 23BCE5121</title>
+    <style>
+        body {
+            background-color: #FEA47F;  
+            text-align: center;
+            font-family: Arial, sans-serif;
+            width: 50%;
+        }
+        h1 {
+            color: #000000;
+        }
+        button {
+            background-color: #F97F51;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+        }
+        button:hover {
+            background-color: #25CCF7;
+        }
+    </style>
+    <script>
+        function calculateCharges() {
+        const hourly = 45;
+        let hoursWorked = parseFloat(prompt("Enter the number of hours worked:"));
+        let materialCost = parseFloat(prompt("Enter the cost of materials:"));
+       
+        if (isNaN(hoursWorked) || isNaN(materialCost) || hoursWorked < 0 || materialCost < 0) {
+            alert("Please enter valid positive numbers.");
+            return;
+        }
+       
+        let labourCost = hourly * hoursWorked;
+        let totalCharge = labourCost + materialCost;
+       
+        alert("Labour Cost: Rs." + labourCost.toFixed(2) + "\nTotal Charge: Rs." + totalCharge.toFixed(2));
+    }
+    </script>
+</head>
+<body>
+    <h1>Labour Cost Finder</h1>
+    <p>____________</p>
+    <button onclick="calculateCharges();">Enter Labour Details</button>
+</body>
+</html>

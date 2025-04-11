@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+    <meta chatset="UTF-8">
+    <title>
+        ResumeForm
+    </title>
+</header>
+<style>
+    footer {
+        width: 80%;
+        margin-top: 20px;
+        background-color: #01000a;
+        color: white;
+        padding: 2px;
+        text-align: center;
+    }
+    fieldset {
+        padding: 15px;
+        margin: 20px;
+        width: 60%;
+    }
+
+
+    legend {
+        font-weight: bold;
+        color: red;
+    }
+
+
+    .form-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+
+    .form-label {
+        flex: 1;
+        text-align: left;
+    }
+
+
+    .form-colon {
+        flex: 1;
+    }
+
+
+    .form-input, .radio-group{
+        flex: 3;
+    }
+
+
+    .form-input input,
+    .form-input textarea,
+    .form-input select {
+        width: 50%;
+    }
+    .inputbutton{
+        margin-left: 30px;
+    }
+    #degreeComboBox {
+    max-height: 100px;
+    overflow-y: auto;
+  }
+  #invisfield, #invisfield{
+    border: none;
+    padding: 0%;
+  }
+  #invisfield2{
+    border: none;
+    padding:0px 0px 0px 15px;
+   
+  }
+  #address{
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+  }
+  #redtext{
+    margin-left: 10px;
+    color: red;
+    font-weight: bold;
+  }
+</style>
+<body>
+    <h2>Resume Form</h2>
+    <form action="#">
+        <fieldset>
+            <legend>Personal Details</legend>
+            <div class="form-row">
+                <div class="form-label">Name</div>
+                <div class="form-colon">:</div>
+                <div class="form-input">
+                    <input type="text" id="name">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">Password</div>
+                <div class="form-colon">:</div>
+                <div class="form-input">
+                    <input type="password" id="password">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">E-mail id</div>
+                <div class="form-colon">:</div>
+                <div class="form-input">
+                    <input type="email" id="email">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">Gender</div>
+                <div class="form-colon">:</div>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="male"> Male</label>
+                    <label><input type="radio" name="gender" value="female"> Female</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">DOB</div>
+                <div class="form-colon">:</div>
+                <div class="form-input">
+                    <input type="date" id="dob">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">Mobile#</div>
+                <div class="form-colon">:</div>
+                <div class="form-input">
+                    <input type="tel" id="mobile">
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Educational Qualifications</legend>
+            <div class="form-row">
+                <div class="form-label"><label for="degreeComboBox">Degree</label></div>
+                <div class="form-colon">:</div>
+                <div class="form-input">
+                    <select id="degreeComboBox" name="degree">
+                    <option value="" disabled selected>-- Select Group --</option>
+                    <optgroup label="UG">
+                    <option value="BE">BE</option>
+                    <option value="BTech">BTech</option>
+                    <option value="BSc">BSc</option>
+                    <option value="BA">BA</option>
+                    <option value="BCA">BCA</option>
+                    <option value="BBA">BBA</option>
+                    <option value="OthersUG">Others</option>
+                    </optgroup>
+
+
+                    <optgroup label="PG">
+                    <option value="ME">ME</option>
+                    <option value="MTech">MTech</option>
+                    <option value="MSc">MSc</option>
+                    <option value="MA">MA</option>
+                    <option value="MCA">MCA</option>
+                    <option value="MBA">MBA</option>
+                    <option value="OthersPG">Others</option>
+                    </optgroup>
+
+
+                    <optgroup label="PhD">
+                    <option value="PhDEngg">Engineering</option>
+                    <option value="PhDScience">Science</option>
+                    <option value="PhDManagement">Management</option>
+                    <option value="OthersPhD">Others</option>
+                    </optgroup>
+            </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-label"><label for="degreeComboBox">Engineering</label></div>
+            <div class="form-colon">:</div>
+            <div class="form-input">
+                <select id="engineeringComboBox" name="engg">
+                    <option value="" disabled selected>-- Select Group --</option>
+                    <option value="CSE">CSE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="CIVIL">CIVIL</option>
+                    <option value="MECH">MECH</option>
+                </select>
+            </div>
+        </div>
+        </fieldset>
+        <fieldset id="invisfield2">
+        <div class="form-row">
+            <div class="form-label">Hobbies</div>
+            <div class="form-colon">:</div>
+            <div class="radio-group">
+                <input type="checkbox">Playing Chess
+                &emsp;&emsp;
+                <input type="checkbox">Reading Books
+            </div>
+        </div>
+        </fieldset>
+        <fieldset id="invisfield2">
+            <div class="form-row">
+                <div class="form-label">Favorite Color</div>
+                <div class="form-colon">:</div>
+                <div class="radio-group">
+                    <input type="color">
+                </div>
+            </div>
+        </fieldset>
+        <fieldset id="invisfield">
+            <label for="address" id="redtext">Address</label>
+            <br><br>
+            <textarea rows="3" id="address"></textarea>
+        </fieldset>
+        <fieldset id="invisfield2">
+            <div class="form-row">
+                <div class="form-label">
+            <label for="resume">Attach Resume</label></div>
+            <div class="form-colon">:</div>
+            <div class="radio-group">
+                <input type="file">
+            </div>
+        </fieldset>
+        <input class="inputbutton" type="submit" value="SUBMIT">
+    </form>
+</body>
+<footer>
+    <p>&copy; 23BCE5121 Pranav Swarup Kumar</p>
+</footer>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expenses Table</title>
+</head>
+
+
+<style>
+    table {
+        width: 80%;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    th, td {
+        border: 3px solid purple;
+        padding: 8px;
+    }
+    td{
+        font-weight: 500;
+    }
+    th {
+        background-color: #efeddf;
+        font-weight: 400;
+    }
+    .boldtext{
+        font-weight: bold;
+        background-color: #efeddf;
+    }
+    .red{
+        background-color: #cd3300;
+    }
+    .pink{
+        background-color: #d60090;
+    }
+    .blue{
+        background-color: #517dc5;
+        color: white;
+    }
+    .green{
+        background-color: #037f00;
+    }
+</style>
+
+
+<body><br>
+    <table>
+        <tr>
+            <th class="boldtext" rowspan="2">Year</th>
+            <th class="boldtext" rowspan="2">Quarter</th>
+            <th class="boldtext" colspan="2">Expenses</th>
+            <th class="boldtext" colspan="2">Income</th>
+        </tr>
+        <tr>
+            <th>Quetta</th>
+            <th>Dubai</th>
+            <th>Quetta</th>
+            <th>Dubai</th>
+        </tr>
+        <tr class="red">
+            <td class="boldtext" rowspan="4">2021</td>
+            <td>1</td>
+            <td>1,900</td>
+            <td>8,650</td>
+            <td>9,000</td>
+            <td>7,780</td>
+        </tr>
+        <tr class="pink">
+            <td>2</td>
+            <td>2,230</td>
+            <td>8,650</td>
+            <td>8,500</td>
+            <td>8,670</td>
+        </tr>
+        <tr  class="blue">
+            <td>3</td>
+            <td>4,000</td>
+            <td>8,650</td>
+            <td>9,900</td>
+            <td>9,870</td>
+        </tr>
+        <tr  class="green">
+            <td>4</td>
+            <td>2,200</td>
+            <td>8,650</td>
+            <td>9,800</td>
+            <td>9,900</td>
+        </tr>
+        <tr  class="red">
+            <td class="boldtext" rowspan="4">2022</td>
+            <td>1</td>
+            <td>7,780</td>
+            <td>8,650</td>
+            <td>7,780</td>
+            <td>9,000</td>
+        </tr>
+        <tr  class="pink">
+            <td>2</td>
+            <td>8,670</td>
+            <td>8,650</td>
+            <td>8,670</td>
+            <td>8,500</td>
+        </tr>
+        <tr  class="blue">
+            <td>3</td>
+            <td>9,870</td>
+            <td>8,650</td>
+            <td>9,870</td>
+            <td>9,900</td>
+        </tr>
+        <tr  class="green">
+            <td>4</td>
+            <td>9,900</td>
+            <td>8,650</td>
+            <td>9,900</td>
+            <td>9,800</td>
+        </tr>
+        <tr>
+            <td class="boldtext" colspan="1">2013</td>
+            <td colspan="5">* * * *</td>
+        </tr>
+    </table>
+</body>
+</html>

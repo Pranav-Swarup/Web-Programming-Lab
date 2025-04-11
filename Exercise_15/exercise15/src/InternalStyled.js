@@ -1,0 +1,25 @@
+// InternalStyledButton.js
+import React from 'react';
+
+
+function InternalStyledButton() {
+  return (
+    <>
+      <style>{`
+        .internal-btn {
+          background-color: darkorange;
+          padding: 12px 24px;
+          font-size: 16px;
+          color: white;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+        }
+      `}</style>
+      <button className="internal-btn">Internal Styled Button</button>
+    </>
+  );
+}
+
+
+export default InternalStyledButton;

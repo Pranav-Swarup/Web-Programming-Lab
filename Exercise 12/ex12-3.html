@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        #mainstuff {
+            margin-left: 220px;
+            margin-right: 220px;
+            margin-top: 150px;
+        }
+
+
+        #div1 {
+            position: static;
+            padding: 20px;
+            background-color: aquamarine;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+            height: 100vh;
+        }
+        header {
+            z-index: 10;
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            color: wheat;
+            font-size: large;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        aside.left {
+            z-index: -1;
+            background-color: grey;
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            color: white;
+        }
+
+
+        aside.right {
+            z-index: -1;
+            background-color: grey;
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            color: white;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .chart {
+            margin-bottom: 40px;
+            width: 100%;
+            height: 400px;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+
+<body>
+    <header>
+        Question 3 Exercise 12 23BCE5121
+    </header>
+    <aside class="left">
+    </aside>
+    <aside class="right">
+    </aside>
+
+
+    <div id="mainstuff">  
+        <h1>Charts with Plotly.js (Dynamic)</h1>
+        <div class="grid-container">
+        <div id="barChart" class="chart"></div>
+        <div id="lineChart" class="chart"></div>
+        <div id="donutChart" class="chart"></div>
+        <div id="pieChart" class="chart"></div>
+        </div>
+    </div>
+
+
+    <script>
+
+
+        const labels = ['Category A', 'Category B', 'Category C', 'Category D'];
+        const values = [30, 50, 20, 40];
+        const colors = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'];
+
+
+        const barChartData = [{
+            x: labels,
+            y: values,
+            type: 'bar',
+            marker: { color: colors },
+        }];
+
+
+        const barChartLayout = {
+            title: 'Bar Chart',
+            xaxis: { title: 'Categories' },
+            yaxis: { title: 'Values' },
+        };
+
+
+        Plotly.newPlot('barChart', barChartData, barChartLayout);
+
+
+        const lineChartData = [{
+            x: labels,
+            y: values,
+            type: 'line',
+            marker: { color: colors },
+            line: { color: '#36A2EB' },
+        }];
+
+
+        const lineChartLayout = {
+            title: 'Line Chart',
+            xaxis: { title: 'Categories' },
+            yaxis: { title: 'Values' },
+        };
+
+
+        Plotly.newPlot('lineChart', lineChartData, lineChartLayout);
+
+
+        const pieChartData = [{
+            values: values,
+            labels: labels,
+            type: 'pie',
+            marker: { colors: colors },
+            textinfo: 'label+percent',
+            hoverinfo: 'label+percent',
+            hole: 0,
+        }];
+
+
+        const pieChartLayout = {
+            title: 'Pie Chart',
+            showlegend: true,
+        };
+
+
+        Plotly.newPlot('pieChart', pieChartData, pieChartLayout);
+
+
+        const donutChartData = [{
+            values: values,
+            labels: labels,
+            type: 'pie',
+            marker: { colors: colors },
+            textinfo: 'label+percent',
+            hoverinfo: 'label+percent',
+            hole: 0.3,
+        }];
+
+
+        const donutChartLayout = {
+            title: 'Donut Chart',
+            showlegend: true,
+        };
+
+
+        Plotly.newPlot('donutChart', donutChartData, donutChartLayout);
+    </script>
+
+
+</body>
+</html>

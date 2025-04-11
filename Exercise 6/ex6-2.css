@@ -1,0 +1,65 @@
+table{
+    border: 2px;
+    border-spacing:10px;
+    background-color:rgb(143, 211, 238);
+}
+td{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius:6px;
+}
+
+
+.button, .operator, #equals{
+    border-bottom: 4px solid rgb(182, 182, 182);
+}
+
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.button{
+    background-color:rgb(255, 255, 255);
+}
+.button:hover{
+    background-color:rgb(160, 90, 224);
+    color:white;
+}
+
+
+.operator{
+    background-color:rgb(250, 227, 231);
+}
+.operator:hover{
+    background-color: #f1a1b6;
+    color:white;
+}
+#clear{
+    background-color:#f1a1b6;
+    color:white;
+    border-bottom: 4px solid rgb(139, 134, 134);
+}
+#clear:hover{
+    background-color:rgb(241, 107, 130);
+}
+#display{
+    background-color: rgb(121, 181, 204);
+    border-top: 4px solid rgb(87, 133, 151);
+}
+#equals{
+    background-color: rgb(218, 255, 162);
+}
+#equals:hover{
+    background-color: rgb(152, 207, 68);
+    color:white;
+}
+#display-input{
+    background-color: rgb(121, 181, 204);
+    border: 0px;
+    height: 30px ;
+    width: 200px;
+}
+
+

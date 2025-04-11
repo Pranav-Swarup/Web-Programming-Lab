@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Indian Flag</title>
+</head>
+
+
+<body>
+    <h2>Indian Flag</h2>
+    <canvas id="flagCanvas" width="600" height="400" style="border:1px solid #000;"></canvas>
+    <script>
+        const canvas = document.getElementById("flagCanvas");
+        const ctx = canvas.getContext("2d");
+
+
+        ctx.fillStyle = "#FF9933";
+        ctx.fillRect(50, 50, 500, 100);
+
+
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(50, 150, 500, 100);
+
+
+        ctx.fillStyle = "#138808";
+        ctx.fillRect(50, 250, 500, 100);
+
+
+
+
+        ctx.beginPath();
+        ctx.arc(300, 200, 45, 0, 2 * Math.PI);
+        ctx.fillStyle = "#000080";
+        ctx.fill();
+        ctx.strokeStyle = "#FFFFFF";
+        ctx.lineWidth = 2;
+        for (let i = 0; i < 24; i++) {
+            const angle = (i * Math.PI) / 12;
+            const x = 300 + 45 * Math.cos(angle);
+            const y = 200 + 45 * Math.sin(angle);
+            ctx.beginPath();
+            ctx.moveTo(300, 200);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+        }
+
+
+        ctx.beginPath();
+        ctx.arc(300, 200, 5, 0, 2 * Math.PI);
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fill();
+    </script>
+</body>
+</html>

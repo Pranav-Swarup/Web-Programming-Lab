@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas</title>
+   
+    <style>
+        #mainstuff {
+            margin-left: 220px;
+            margin-right: 220px;
+            margin-top: 150px;
+        }
+
+
+        #div1 {
+            position: static;
+            padding: 20px;
+            background-color: aquamarine;
+        }
+
+
+        header {
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            color: wheat;
+            font-size: large;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+
+        aside.left {
+            z-index: -1;
+            background-color: grey;
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            color: white;
+        }
+
+
+        aside.right {
+            z-index: -1;
+            background-color: grey;
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            color: white;
+        }
+        table, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <header>
+        Question 1-2 Exercise 12 23BCE5121
+    </header>
+    <aside class="left">
+    </aside>
+    <aside class="right">
+    </aside>
+    <div id="mainstuff">  
+        <canvas id="pond" width="600" height="400" style="border:1px solid black;"></canvas>      
+    </div>
+
+
+    <script>
+        const canvas = document.getElementById("pond");
+        const ctx = canvas.getContext("2d");
+
+
+        let boatX = 250;
+        let boatY = 250;
+        let direction = 1;
+        function drawScene() {
+
+
+            ctx.beginPath();
+            ctx.arc(500, 50, 30, 0, Math.PI * 2);
+            ctx.fillStyle = "yellow";
+            ctx.fill();
+            ctx.closePath();
+            for (let i = 0; i < 8; i++) {
+                let angle = (Math.PI / 4) * i;
+                let x1 = 500 + Math.cos(angle) * 40;
+                let y1 = 50 + Math.sin(angle) * 40;
+                let x2 = 500 + Math.cos(angle) * 60;
+                let y2 = 50 + Math.sin(angle) * 60;
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+                ctx.strokeStyle = "yellow";
+                ctx.stroke();
+            }
+
+
+            // **Draw the Pond**
+            ctx.beginPath();
+            ctx.ellipse(300, 250, 120, 60, 0, 0, Math.PI * 2);
+            ctx.fillStyle = "lightblue";
+            ctx.fill();
+            ctx.closePath();
+
+
+
+
+            ctx.beginPath();
+            ctx.moveTo(boatX, 230);
+            ctx.lineTo(boatX + 40, 230);
+            ctx.lineTo(boatX + 30, 240);
+            ctx.lineTo(boatX + 10, 240);
+            ctx.closePath();
+            ctx.fillStyle = "brown";
+            ctx.fill();
+
+
+
+
+            ctx.fillStyle = "orange";
+            ctx.fillRect(50, 200, 60, 60);
+            ctx.fillStyle = "red";
+            ctx.beginPath();
+            ctx.moveTo(50, 200);
+            ctx.lineTo(80, 170);
+            ctx.lineTo(110, 200);
+            ctx.closePath();
+            ctx.fill();
+            ctx.fillStyle = "blue";
+            ctx.fillRect(70, 220, 10, 10);
+
+
+            ctx.fillStyle = "green";
+            ctx.fillRect(500, 280, 10, 40);
+            ctx.fillStyle = "pink";
+            for (let i = 0; i < 5; i++) {
+                let angle = (Math.PI / 2.5) * i;
+                ctx.beginPath();
+                ctx.ellipse(505 + Math.cos(angle) * 15, 270 + Math.sin(angle) * 15, 10, 15, angle, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.fillStyle = "yellow";
+            ctx.beginPath();
+            ctx.arc(505, 270, 5, 0, Math.PI * 2);
+            ctx.fill();
+
+
+            ctx.fillStyle = "yellow";
+            ctx.beginPath();
+            ctx.arc(400, 270, 15, 0, Math.PI * 2); // Body
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(415, 260, 10, 0, Math.PI * 2); // Head
+            ctx.fill();
+            ctx.fillStyle = "orange";
+            ctx.beginPath();
+            ctx.moveTo(425, 260);
+            ctx.lineTo(435, 255);
+            ctx.lineTo(425, 255);
+            ctx.closePath();
+            ctx.fill();
+            ctx.fillStyle = "gray";
+            for (let i = 0; i < 3; i++) {
+                ctx.beginPath();
+                ctx.arc(150 + i * 10, 300, 8, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+
+        function animateBoat() {
+            boatX += direction * 1;
+            if (boatX > 350 || boatX < 250) {
+                direction *= -1;
+            }
+            if (boatY > 350 || boatY < 250) {
+                direction *= -1;
+            }
+            drawScene();
+            requestAnimationFrame(animateBoat);
+        }
+
+
+        animateBoat();
+    </script>
+
+
+</body>
+</html>

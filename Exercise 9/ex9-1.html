@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New York Temperature Analysis</title>
+    <style>
+        body {
+            background-color: #fceaff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h2 {
+            color: #ff9eb5;
+        }
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #ffcad4;
+        }
+        th, td {
+            border: 1px solid white;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #ff9eb5;
+            color: white;
+        }
+        #summary {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+    <script>
+        function analyzeTemperatures() {
+            const temperatures = [55,62,68,74,59,45,41,58,60,67,65,78,82,88,91,92,90,93,87,80,78,79,72,68,61,59,55,65];
+            let hotDays = 0, pleasantDays = 0, coldDays = 0;
+            let tableContent = "";
+
+
+            temperatures.forEach(temp => {
+                let category;
+                if (temp >= 85) {
+                    category = "HOT";
+                    hotDays++;
+                } else if (temp >= 60) {
+                    category = "PLEASANT";
+                    pleasantDays++;
+                } else {
+                    category = "COLD";
+                    coldDays++;
+                }
+                tableContent += `<tr><td>${temp}°F</td><td>${category}</td></tr>`;
+            });
+
+
+            document.getElementById("tempTableBody").innerHTML = tableContent;
+            document.getElementById("summary").innerHTML = `
+                <p>HOT Days: ${hotDays}</p>
+                <p>PLEASANT Days: ${pleasantDays}</p>
+                <p>COLD Days: ${coldDays}</p>`;
+        }
+    </script>
+</head>
+<body onload="analyzeTemperatures()">
+    <h2>New York Temperature Analysis</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Temperature (°F)</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody id="tempTableBody"></tbody>
+    </table>
+    <div id="summary"></div>
+</body>
+</html>

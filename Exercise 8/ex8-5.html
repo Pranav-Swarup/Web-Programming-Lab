@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Registration Number and Name</title>
+</head>
+<style>
+    body {
+        background-color: #FEA47F;  
+        text-align: center;
+        font-family: Arial, sans-serif;
+        width: 50%;
+    }
+    h1 {
+        color: #000000;
+    }
+    button {
+        background-color: #F97F51;
+        border: none;
+        padding: 15px 30px;
+        font-size: 18px;
+        border-radius: 10px;
+        cursor: pointer;
+        color: white;
+    }
+    button:hover {
+        background-color: #25CCF7;
+    }
+
+
+</style>
+<body>
+    <script>
+       
+        let regNo = prompt("Enter your registration number:");
+        let name = prompt("Enter your name:");
+
+
+        document.write('<p style="color: blue; font-size: 20px;">' + regNo + '</p>');
+
+
+        document.body.innerHTML += '<p style="color: green; font-size: 20px;"><em>' + name + '</em></p>';
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Seat Booking</title>
+    <style>
+        body {
+            background-color: #00688b;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h2 {
+            color: #ffffff;
+        }
+        button {
+            background-color: #fe002f;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+        }
+        button:hover {
+            background-color: #ff4671;
+        }
+        #boardingPass {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #c3c3c3;
+        }
+    </style>
+    <script>
+        let seats = new Array(10).fill(0);
+       
+        function bookSeat() {
+            let name = prompt("Enter your name:");
+            if (!name) return;
+
+
+            let section = prompt("Enter 1 for First-Class (Seats 1-5) or 2 for Economy (Seats 6-10):");
+            if (section !== "1" && section !== "2") {
+                alert("Invalid choice. Please enter 1 or 2.");
+                return;
+            }
+
+
+            let start = section === "1" ? 0 : 5;
+            let end = section === "1" ? 5 : 10;
+            let assignedSeat = -1;
+
+
+            for (let i = start; i < end; i++) {
+                if (seats[i] === 0) {
+                    seats[i] = 1;
+                    assignedSeat = i + 1;
+                    break;
+                }
+            }
+
+
+            if (assignedSeat === -1) {
+                let alternative = section === "1" ? "Economy" : "First-Class";
+                if (confirm(`The selected section is full. Would you like to book in ${alternative}?`)) {
+                    start = section === "1" ? 5 : 0;
+                    end = section === "1" ? 10 : 5;
+                    for (let i = start; i < end; i++) {
+                        if (seats[i] === 0) {
+                            seats[i] = 1;
+                            assignedSeat = i + 1;
+                            break;
+                        }
+                    }
+                }
+            }
+
+
+            if (assignedSeat !== -1) {
+                document.getElementById("boardingPass").innerHTML = `
+                    <p>Boarding Pass</p>
+                    <p>Name: ${name}</p>
+                    <p>Seat Number: ${assignedSeat}</p>
+                    <p>Class: ${assignedSeat <= 5 ? "First-Class" : "Economy"}</p>`;
+            } else {
+                alert("Sorry, no seats available.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Airline Seat Booking System</h2>
+    <button onclick="bookSeat()">Book a Seat</button>
+    <div id="boardingPass"></div>
+</body>
+</html>

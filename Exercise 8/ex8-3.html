@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Verification</title>
+    <style>
+        body {
+            background-color: #6671f4;  
+            text-align: center;
+            font-family: Arial, sans-serif;
+            width: 50%;
+        }
+        h1 {
+            color: #000000;
+        }
+        button {
+            background-color: #8b00b5;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+        }
+        button:hover {
+            background-color: #ff9eb5;
+        }
+    </style>
+    <script>
+        function getRegistrationNumber() {
+        let isStudent = confirm("Are you a student?");
+   
+        if (isStudent) {
+            let regNumber = prompt("Enter your registration number:");
+            if (regNumber) {
+                alert("Registration number recorded: " + regNumber);
+            } else {
+                alert("No registration number entered.");
+            }
+        } else {
+            alert("Only students can enter a registration number.");
+        }
+    }
+    </script>
+</head>
+<body>
+    <h1>Registration Number Checker</h1>
+    <p>____________</p>
+    <button onclick="getRegistrationNumber();">Enter Registration Number</button>
+</body>
+</html>

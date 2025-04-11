@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stopwatch and Age Calc</title>
+   
+    <style>
+        div.mainstuff {
+            margin-left: 220px;
+            margin-right: 220px;
+            margin-top: 150px;
+        }
+
+
+        #div1 {
+            position: static;
+            padding: 20px;
+            background-color: aquamarine;
+        }
+
+
+        header {
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            color: wheat;
+            font-size: large;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+
+        aside.left {
+            z-index: -1;
+            background-color: grey;
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            color: white;
+        }
+
+
+        aside.right {
+            z-index: -1;
+            background-color: grey;
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            color: white;
+        }
+        .Radio, .Preferenceslabel {
+        display: inline-flex;
+        align-items: center;
+        }
+        .Radio-Input {
+        margin: 0 0.5em 0;
+        }
+        #redtext{
+            color: red;
+            display: inline;
+        }
+    </style>
+</head>
+
+
+<body>
+    <header>
+        Question 3 Exercise 11 23BCE5121
+    </header>
+    <aside class="left">
+    </aside>
+    <aside class="right">
+    </aside>
+    <div class="mainstuff">
+
+
+        <form id="validationForm" onsubmit="return validateForm()">
+            <fieldset>
+            <label for="name">Name<div id="redtext">*</div></label>
+            <input type="text" id="name" name="name" maxlength="15">
+            <div id="nameError" class="error"></div>
+   
+            <label for="address">Address</label>
+            <textarea id="address" name="address" rows="4"></textarea>
+   
+            <label for="zip">Zip Code<div id="redtext">*</div></label>
+            <input type="text" id="zip" name="zip">
+            <div id="zipError" class="error"></div>
+
+
+            <label for="country">Country<div id="redtext">*</div></label>
+            <select id="country" name="country">
+                <option value="">Please select...</option>
+                <option value="USA">USA</option>
+                <option value="India">India</option>
+                <option value="UK">UK</option>
+            </select>
+            <div id="countryError" class="error"></div>
+   
+            <label>Gender<div id="redtext">*</div></label>
+            <fieldset>
+                <div>
+                    <label class="Radio" for="sex-female">
+                      <input class="Radio-Input" type="radio" id="sex-female" name="sex" value="female" />
+                      Female
+                    </label>
+                 
+                    <label class="Radio" for="sex-male">
+                      <input class="Radio-Input" type="radio" id="sex-male" name="sex" value="male" />
+                      Male
+                    </label>
+                  </div>
+            <div id="genderError" class="error"></div>
+            </fieldset>
+
+
+            <label>Preferences<div id="redtext">*</div></label>
+            <fieldset>
+                <label  class="Preferenceslabel">
+                <input type="checkbox" name="preferences" value="Red"> Red </label>
+                <label  class="Preferenceslabel">
+                <input type="checkbox" name="preferences" value="Green"> Green </label>
+                <label  class="Preferenceslabel">
+                <input type="checkbox" name="preferences" value="Blue"> Blue </label>
+                <div id="preferencesError" class="error"></div>
+            </fieldset>
+            <label for="phone">Phone<div id="redtext">*</div></label>
+            <input type="text" id="phone" name="phone">
+            <div id="phoneError" class="error"></div>
+   
+            <label for="email">Email<div id="redtext">*</div></label>
+            <input type="text" id="email" name="email">
+            <div id="emailError" class="error"></div>
+   
+            <label for="password">Password (6-8 characters)<div id="redtext">*</div></label>
+            <input type="password" id="password" name="password">
+            <div id="passwordError" class="error"></div>
+
+
+            <label for="verifyPassword">Verify Password<div id="redtext">*</div></label>
+            <input type="password" id="verifyPassword" name="verifyPassword">
+            <div id="verifyPasswordError" class="error"></div>
+
+
+            <label for="pan">PAN Card Number<div id="redtext">*</div></label>
+            <input type="text" id="pan" name="pan">
+            <div id="panError" class="error"></div>
+   
+            <button type="submit">Submit</button>
+            </fieldset>
+        </form>
+   
+
+
+    </div>
+
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+
+            document.querySelectorAll(".error").forEach(el => el.textContent = "");
+
+
+            const name = document.getElementById("name").value.trim();
+            if (!name) {
+                document.getElementById("nameError").textContent = "Please enter your name!";
+                document.getElementById("name").focus();
+                isValid = false;
+            } else if (name.length > 15) {
+                document.getElementById("nameError").textContent = "Name should not exceed 15 characters!";
+                document.getElementById("name").focus();
+                isValid = false;
+            }
+
+
+            const zip = document.getElementById("zip").value.trim();
+            if (!zip) {
+                document.getElementById("zipError").textContent = "Zip Code is required!";
+                document.getElementById("zip").focus();
+                isValid = false;
+            } else if (!/^\d{6}$/.test(zip)) {
+                document.getElementById("zipError").textContent = "Zip Code must be 6 digits!";
+                document.getElementById("zip").focus();
+                isValid = false;
+            }
+
+
+            const country = document.getElementById("country").value;
+            if (!country) {
+                document.getElementById("countryError").textContent = "Please select a country!";
+                document.getElementById("country").focus();
+                isValid = false;
+            }
+
+
+            const gender = document.querySelector('input[name="gender"]:checked');
+            if (!gender) {
+                document.getElementById("genderError").textContent = "Please select a gender!";
+                isValid = false;
+            }
+
+
+            const preferences = document.querySelectorAll('input[name="preferences"]:checked');
+            if (preferences.length === 0) {
+                document.getElementById("preferencesError").textContent = "Please select at least one preference!";
+                isValid = false;
+            }
+
+
+            const phone = document.getElementById("phone").value.trim();
+            if (!phone) {
+                document.getElementById("phoneError").textContent = "Phone is required!";
+                document.getElementById("phone").focus();
+                isValid = false;
+            } else if (!/^\d{10}$/.test(phone)) {
+                document.getElementById("phoneError").textContent = "Phone must be 10 digits!";
+                document.getElementById("phone").focus();
+                isValid = false;
+            }
+
+
+            const email = document.getElementById("email").value.trim();
+            if (!email) {
+                document.getElementById("emailError").textContent = "Email is required!";
+                document.getElementById("email").focus();
+                isValid = false;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById("emailError").textContent = "Invalid email format!";
+                document.getElementById("email").focus();
+                isValid = false;
+            }
+
+
+            const password = document.getElementById("password").value.trim();
+            if (!password) {
+                document.getElementById("passwordError").textContent = "Password is required!";
+                document.getElementById("password").focus();
+                isValid = false;
+            } else if (password.length < 6 || password.length > 8) {
+                document.getElementById("passwordError").textContent = "Password must be 6-8 characters!";
+                document.getElementById("password").focus();
+                isValid = false;
+            } else if (!/(?=.*\d)(?=.*[a-zA-Z])(?=.*[\W_])/.test(password)) {
+                document.getElementById("passwordError").textContent = "Password must contain a number, character, and special character!";
+                document.getElementById("password").focus();
+                isValid = false;
+            }
+
+
+            const verifyPassword = document.getElementById("verifyPassword").value.trim();
+            if (!verifyPassword) {
+                document.getElementById("verifyPasswordError").textContent = "Please verify your password!";
+                document.getElementById("verifyPassword").focus();
+                isValid = false;
+            } else if (verifyPassword !== password) {
+                document.getElementById("verifyPasswordError").textContent = "Passwords do not match!";
+                document.getElementById("verifyPassword").focus();
+                isValid = false;
+            }
+
+
+            const pan = document.getElementById("pan").value.trim();
+            if (!pan) {
+                document.getElementById("panError").textContent = "PAN Card Number is required!";
+                document.getElementById("pan").focus();
+                isValid = false;
+            } else if (!/^[A-Z]{5}\d{4}[A-Z]{1}$/.test(pan)) {
+                document.getElementById("panError").textContent = "Invalid PAN Card Number!";
+                document.getElementById("pan").focus();
+                isValid = false;
+            }
+
+
+            return isValid;
+        }
+    </script>
+
+
+</body>
+</html>

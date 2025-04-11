@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expenses Table</title>
+</head>
+
+
+<style>
+    #tablediv{
+        width:80%;
+    }
+    
+
+
+table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        background-color: #235121;
+    }
+    #italics{
+        display: flex;
+        font-family: 'Times New Roman', Times, serif;
+        justify-content: center;
+        font-style: italic;
+        font-size: 15px;
+    }
+    th, td {
+        border: 3px solid purple;
+        padding: 10px;
+        color: white;
+    }
+    .boldtext{
+        font-weight: bold;
+    }
+    .lastcol{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+</style>
+
+
+<body><br>
+    <div id="tablediv">
+    <p id="italics">A test table with merged cells</p>
+    <table>
+        <tr class="boldtext">
+            <th rowspan="2">
+                <a href="expenses.html">
+                    Expenses</a></th>
+            <th colspan="2">Average</th>
+            <th class="lastcol" rowspan="2">Red<br>Eyes</th>
+        </tr>
+        <tr>
+            <th>Height</th>
+            <th>Weight</th>
+        </tr>
+       
+ <tr>
+            <td class="boldtext">Males</td>
+            <td>1.9</td>
+            <td>0.003</td>
+            <td class="lastcol">40%</td>
+        </tr>
+        <tr>
+            <td class="boldtext">Females</td>
+            <td>1.7</td>
+            <td>0.002</td>
+            <td class="lastcol">43%</td>
+        </tr>
+
+
+    </table>
+    <p id="italics">The color of the table is 235121 in HEX Code</p>
+    </div>
+</body>
+</html>
